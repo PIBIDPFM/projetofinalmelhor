@@ -1,0 +1,37 @@
+---
+import { getCollection } from "astro:content";
+import { Picture } from "astro:assets";
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/container.astro";
+import Sectionhead from "@components/sectionhead.astro";
+import Link from "@components/ui/link.astro";
+import { Icon } from "astro-icon/components";
+
+// Filter team entries with 'draft: false' & date before current date
+const publishedTeamMembers = await getCollection("team", ({ data }) => {
+  return !data.draft && data.publishDate < new Date();
+});
+---
+
+<Layout title="Acervo">
+    <Container>
+      <Sectionhead>
+        <Fragment slot="title">Acervo</Fragment>
+        <Fragment slot="desc">Escolha uma história para jogar.</Fragment>
+      </Sectionhead>
+  
+      <div class="flex flex-col gap-3 mx-auto max-w-4xl mt-16">
+        <Link     
+          href="/projetofinalmelhor/stories"
+          target="_blank"
+          class="flex gap-1 items-center justify-left"
+          rel="noopener"
+        >      
+          <Icon class="text-white w-10 h-10" name="bx:bx-play" />
+          O Gato Preto
+          <span class="ml-auto text-sm text-gray-500">-Edgar Allan Poe</span>
+        </Link>
+      </div>
+    </Container>
+  </Layout>
+  
