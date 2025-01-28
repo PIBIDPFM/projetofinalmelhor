@@ -1,6 +1,4 @@
-import { storyContent } from './InkStory.js'; // Certifique-se do caminho correto
-
-(function(storyContent) {
+export function renderStory(storyContent) {
 
     // Create ink story from the content using inkjs
     const story = new inkjs.Story(storyContent);
@@ -438,4 +436,4 @@ import { storyContent } from './InkStory.js'; // Certifique-se do caminho corret
         });
     }
 
-})(storyContent);
+};

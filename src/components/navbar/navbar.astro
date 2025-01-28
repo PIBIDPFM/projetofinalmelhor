@@ -18,22 +18,17 @@ const menuitems: MenuItem[] = [
   },
   {
     title: "Quem somos",
-    path: "/projetofinalmelhor/quemsomos",
+    path: "/projetofinalmelhor/quem-somos",
     children: null,
   },
   {
     title: "Como funciona?",
-    path: "/projetofinalmelhor/about",
+    path: "/projetofinalmelhor/sobre",
     children: null,
   },
   {
     title: "Blog",
     path: "/projetofinalmelhor/blog",
-    children: null,
-  },
-  {
-    title: "Contato",
-    path: "/projetofinalmelhor/contact",
     children: null,
   },
 ];
@@ -44,9 +39,7 @@ const menuitems: MenuItem[] = [
     <Astronav>
       <div class="flex w-full lg:w-auto items-center justify-between">
         <a href="/projetofinalmelhor" class="text-lg"
-          ><span class="font-bold text-slate-800">Astro</span><span
-            class="text-slate-500">ship</span
-          >
+          ><span class="font-bold text-slate-800">Projeto Histórias</span>
         </a>
         <div class="block lg:hidden">
           <MenuIcon class="w-4 h-4 text-gray-800" />
@@ -83,17 +76,9 @@ const menuitems: MenuItem[] = [
             ))
           }
         </ul>
-        <div class="lg:hidden flex items-center mt-3 gap-4">
-          <Link href="#" style="muted" block size="md">Log in</Link>
-          <Link href="#" size="md" block>Sign up</Link>
-        </div>
       </MenuItems>
     </Astronav>
     <div>
-      <div class="hidden lg:flex items-center gap-4">
-        <a href="#">Log in</a>
-        <Link href="#" size="md">Sign up</Link>
-      </div>
     </div>
   </header>
 </Container>

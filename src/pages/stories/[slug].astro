@@ -1,0 +1,57 @@
+---
+import { getCollection } from "astro:content";
+import "/stories/style.css";
+
+// Generate a new path for every collection entry
+export async function getStaticPaths() {
+  const blogEntries = await getCollection("stories");
+  return blogEntries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+// Get the entry directly from the prop on render
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Ink Story</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <div class="outerContainer">
+      <h3 class="written-in-ink">
+        <a href="https://www.inklestudios.com/ink">FEITO COM INK</a>
+      </h3>
+
+      <div id="controls" class="buttons">
+        <a id="rewind" title="Restart story from beginning">reiniciar</a>
+        <a id="save" title="Save progress">salvar</a>
+        <a id="reload" title="Reload from save point">carregar</a>
+        <a id="theme-switch" title="Switch theme">tema</a>
+      </div>
+
+      <div id="story" class="container">
+        <div class="header">
+          <h1>{entry.data.title}</h1>
+          <h2 class="byline"></h2>
+        </div>
+      </div>
+    </div>
+
+    <script src="../stories/ink.js" type="module"></script>
+    <script id="story-script" type="module" data-story={entry.body}>
+			import { renderStory } from "../stories/main.js"
+
+			const storyString = document.getElementById("story-script").dataset.story;
+
+			(async () => {
+				const storyContent = await JSON.parse(storyString);
+				renderStory(storyContent);
+			})()
+		</script>
+  </body>
+</html>
