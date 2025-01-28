@@ -6,7 +6,7 @@ import icon from "astro-icon";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://pibidpfm.github.io/projetofinalmelhor",
-  base: "projetofinalmelhor",
+  site: "https://pibidpfm.github.io",
+  base: "/projetofinalmelhor",
   integrations: [tailwind(), mdx(), sitemap(), icon()],
 });
