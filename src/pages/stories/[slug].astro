@@ -482,11 +482,7 @@ const { entry } = Astro.props;
 
 			(async () => {
 				const storyJSON = await JSON.parse(storyContent);
-				if (typeof renderStory === "function") {
-					renderStory(storyJSON);
-				} else {
-					console.error("renderStory function is not available");
-				}
+				renderStory(storyJSON);
 			})()
 		</script>
   </body>
