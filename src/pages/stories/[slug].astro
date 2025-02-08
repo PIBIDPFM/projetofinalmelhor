@@ -12,24 +12,20 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 ---
-<html lang="en">
+<html lang="pt">
   <head>
     <meta charset="utf-8">
-    <title>Ink Story</title>
+    <title>História</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
     <div class="outerContainer">
-      <h3 class="written-in-ink">
-        <a href="https://www.inklestudios.com/ink">FEITO COM INK</a>
+      <h3 class="written-in-ink space-x-4">
+		<a id="rewind" title="Volta a história para o começo">reiniciar</a>
+		<a id="save" title="Salva seu progresso">salvar</a>
+		<a id="reload" title="Recarrega seu savepoint">carregar</a>
+		<a href="/projetofinalmelhor/acervo">acervo</a>
       </h3>
-
-      <div id="controls" class="buttons">
-        <a id="rewind" title="Restart story from beginning">reiniciar</a>
-        <a id="save" title="Save progress">salvar</a>
-        <a id="reload" title="Reload from save point">carregar</a>
-        <a id="theme-switch" title="Switch theme">tema</a>
-      </div>
 
       <div id="story" class="container">
         <div class="header">
