@@ -11,27 +11,27 @@ const publishedStories = await getCollection("stories", ({ data }) => {
   return !data.draft;
 });
 ---
+<body class="bg-background text-text">
+	<Layout title="Acervo">
+		<Container>
+			<Sectionhead>
+			<Fragment slot="title">Acervo</Fragment>
+			<Fragment slot="desc">Escolha uma história para jogar.</Fragment>
+			</Sectionhead>
 
-<Layout title="Acervo">
-    <Container>
-      <Sectionhead>
-        <Fragment slot="title">Acervo</Fragment>
-        <Fragment slot="desc">Escolha uma história para jogar.</Fragment>
-      </Sectionhead>
-  
 			{publishedStories.map((story) => (
-				<div class="flex flex-col gap-3 mx-auto max-w-4xl mt-16">
-					<Link     
-						href={`/projetofinalmelhor/stories/${story.slug}`}
-						class="flex gap-1 items-center justify-left"
-						rel="noopener"
-					>      
-						<Icon class="text-white w-10 h-10" name="bx:bx-play" />
-							{story.data.title}
-						<span class="ml-auto text-sm text-gray-500">-{story.data.author}</span>
-					</Link>
+				<div class="mx-auto max-w-4xl mt-8">
+				  <Link
+					href={`/projetofinalmelhor/stories/${story.slug}`}
+					class="block py-2 px-4 text-base text-text hover:text-blue-500 bg-transparent border-none"
+					rel="noopener"
+				  >
+					<Icon class="w-8 h-8 text-gray-700 inline-block mr-2" name="bx:bx-play" />
+					<span>{story.data.title}</span>
+					<span class="ml-auto text-sm text-gray-500">-{story.data.author}</span>
+				  </Link>
 				</div>
-			))}
-    </Container>
-  </Layout>
-  
+		    ))}		
+		</Container>
+	</Layout>
+</body>

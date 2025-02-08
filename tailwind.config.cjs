@@ -40,7 +40,12 @@ module.exports = {
       borderRadius: {
         custom: "10px",
       },
+      container: {
+        center: true, // Centraliza o container
+        padding: "4em 20px 20px 20px", // Ajusta o padding
+        maxWidth: "600px", // Largura máxima
+        
     },
   },
   plugins: [require("@tailwindcss/typography")],
-};
+  }}
